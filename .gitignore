@@ -1,0 +1,24 @@
+# ===== Python / general =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.tmp
+.DS_Store
+
+# ===== Conda / virtual envs =====
+.env
+.venv
+conda-env/
+chemml2/
+*.lock
+
+# ===== Enumeration outputs (generated) =====
+library_final_products*.csv
+library_final_products*.sdf
+library_plate_map_*.csv
+*_preview.png
+
+# ===== Opentrons artifacts (generated later) =====
+opentrons/protocols/generated/

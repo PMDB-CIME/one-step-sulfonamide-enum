@@ -1,0 +1,9 @@
+smiles,Amine_ID,name,CAS Number
+CCCN1CCNCC1,Amine_ID_001,1-propylpiperazine,21867-64-1
+C1COCCN1,Amine_ID_002,morpholine,110-91-8
+C1CCNC1,Amine_ID_003,pyrrolidine,123-75-1
+C1CN(CCN1)C2=CC=CC=C2,Amine_ID_004,1-phenylpiperazine,92-54-6
+C1CNC2=CC=CC=C21,Amine_ID_005,"2,3-dihydro-1H-indole",496-15-1
+C1CCC(CC1)N.Cl,Amine_ID_006,cyclohexanamine;hydrochloride,4998-76-9
+CN1CCNCC1,Amine_ID_007,1-methylpiperazine,109-01-3
+C1=CC=C(C=C1)N,Amine_ID_008,aniline,62-53-3

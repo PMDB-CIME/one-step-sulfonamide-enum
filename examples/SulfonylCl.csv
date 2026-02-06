@@ -1,0 +1,13 @@
+smiles,S_ID,name
+O=S(C1=CC=C(Cl)C=C1)(Cl)=O,S_001,p-Chlorophenylsulfonyl chloride
+COC1=CC=C(S(Cl)(=O)=O)C=C1,S_002,4-Methoxybenzenesulfonyl chloride
+O=S(C1=CC=C(Cl)C(Cl)=C1)(Cl)=O,S_003,"3,4-Dichlorobenzene-1-sulfonyl chloride"
+O=S(C1=CC=CC(Cl)=C1)(Cl)=O,S_004,3-Chlorobenzenesulfonyl chloride
+O=S(C1=CC=C(N(C)C)C=C1)(Cl)=O,S_005,4-(Dimethylamino)benzenesulfonyl chloride
+O=S(C1=CC=CC=C1Cl)(Cl)=O,S_006,2-Chlorobenzenesulfonyl chloride
+ClS(C1=CC=CC(F)=C1)(=O)=O,S_007,3-Fluorobenzene-1-sulfonyl chloride
+O=S(C1=CC=C(F)C=C1)(Cl)=O,S_008,4-Fluorobenzenesulfonyl chloride
+O=S(C(C(C)=C1)=CC=C1F)(Cl)=O,S_009,4-Fluoro-o-toluenesulphonyl chloride
+O=S(C1=CC(C2=CC=CC=C2)=CC=C1)(Cl)=O,S_010,Biphenyl-3-sulfonyl chloride
+CC1=C(C=CC=C1S(=O)(=O)Cl)F,S_011,3-Fluoro-2-methylbenzenesulfonyl chloride
+O=S(C1=CC=CC(OC)=C1)(Cl)=O,S_012,3-Methoxybenzensulfonyl chloride
