@@ -208,3 +208,93 @@ The simplified one-step design is intended for rapid library ideation and early 
 
 MIT License (see LICENSE file)
 
+---
+
+## Opentrons Plate Mapping and QC
+
+This repository includes tooling to **validate that the virtual enumeration matches the Opentrons dispense protocol** and to generate a single, authoritative plate map linking **destination wells to Product SMILES**.
+
+The workflow uses the Opentrons protocol as the source of truth for **well-level reagent dispensing**, and the enumeration output as the source of truth for **chemistry**.
+
+---
+
+## Generating the Opentrons Destination Plate Map
+
+The Opentrons protocol defines:
+- which **sulfonyl chloride** and **amine** are dispensed
+- from which **source wells**
+- into which **destination wells**
+
+To extract this mapping:
+
+```bash
+python tools/opentrons_extract_destination_map.py \
+  --protocol opentrons/protocols/one-step-dispense.py \
+  --out-dest destination_plate_layout.csv \
+  --out-source source_plate_layout.csv
+```
+
+### Outputs
+- `destination_plate_layout.csv`  
+  Maps each destination well to:
+  - Sulfonyl chloride #
+  - Amine #
+  - Sulfonyl source well
+  - Amine source well
+
+- `source_plate_layout.csv`  
+  Documents reagent identity and source plate layout used by the robot.
+
+---
+
+## Generating the Authoritative Plate Map (Well → SMILES)
+
+To combine **robot dispense truth** with **enumeration chemistry**, merge the Opentrons mapping with the enumeration output:
+
+```bash
+python tools/merge_authoritative_plate_map.py \
+  --dest-map destination_plate_layout.csv \
+  --products library_final_products.csv \
+  --out authoritative_plate_map_96.csv \
+  --qc qc_report.txt
+```
+
+### Outputs
+- `authoritative_plate_map_96.csv`  
+  The single source of truth linking:
+  - Destination well (A1–H12)
+  - Reagent identities
+  - Source wells
+  - ProductID
+  - Product SMILES
+  - Reaction status
+
+- `qc_report.txt`  
+  Quality control summary confirming:
+  - Total wells processed
+  - Missing SMILES (must be zero for a valid run)
+
+---
+
+## Interpretation and Downstream Use
+
+- `library_plate_map_96.csv`  
+  Reflects the **enumeration’s internal ordering** and should not be used for robotic execution.
+
+- `destination_plate_layout.csv`  
+  Reflects **Opentrons dispense behavior** only (no chemistry).
+
+- **`authoritative_plate_map_96.csv`**  
+  This is the file that should be used for:
+  - sample registration
+  - LC/MS plate setup
+  - screening metadata
+  - structure–well traceability
+
+---
+
+## Notes
+
+- All generated plate maps and QC files are intentionally excluded from version control via `.gitignore`.
+- Enumeration and Opentrons logic are kept separate and reconciled explicitly to prevent silent mismatches.
+- This design ensures that **every SMILES assigned to a destination well is provably correct**.
