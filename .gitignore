@@ -19,6 +19,11 @@ library_final_products*.csv
 library_final_products*.sdf
 library_plate_map_*.csv
 *_preview.png
+destination_plate_layout*.csv
+source_plate_layout*.csv
+authoritative_plate_map*.csv
+qc_report*.txt
+
 
 # ===== Opentrons artifacts (generated later) =====
 opentrons/protocols/generated/
