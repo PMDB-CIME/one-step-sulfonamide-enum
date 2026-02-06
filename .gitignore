@@ -23,6 +23,7 @@ destination_plate_layout*.csv
 source_plate_layout*.csv
 authoritative_plate_map*.csv
 qc_report*.txt
+README_*updated*.md
 
 
 # ===== Opentrons artifacts (generated later) =====
